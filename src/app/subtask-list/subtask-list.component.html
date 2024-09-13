@@ -1,0 +1,71 @@
+<div class="subtask-container py-3">
+  <div class="subtask-header d-flex align-items-center">
+    <h4>Subtasks</h4>
+    <div class="progress-container">
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width]="taskProgress + '%'"
+          [attr.aria-valuenow]="taskProgress"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+      <p>{{ taskCountText }}</p>
+    </div>
+  </div>
+
+  <div class="subtask-table">
+    <div class="subtask-header-row">
+      <span class="header-text">Subtask name</span>
+    </div>
+
+    <div
+      *ngFor="let task of tasks; let i = index"
+      class="subtask-item d-flex align-items-center"
+    >
+      <input
+        type="radio"
+        [checked]="task.completed"
+        (click)="toggleCompletion(i)"
+      />
+      <span
+        [ngClass]="{
+          muted: !task.completed && !isLastTask(i),
+          'black-text': !task.completed && isLastTask(i)
+        }"
+        (dblclick)="editTask(i)"
+      >
+        {{ task.name }}
+      </span>
+      <input
+        *ngIf="editIndex === i"
+        [(ngModel)]="task.name"
+        (keydown.enter)="updateTask(i)"
+        (blur)="editIndex = -1"
+        class="form-control"
+      />
+    </div>
+
+    <!-- Add New Subtask Button and Input -->
+    <!-- Add New Subtask Button and Input -->
+    <div class="add-subtask">
+      <button
+        *ngIf="!showInput"
+        class="btn btn-light text-secondary w-100 text-start"
+        (click)="displayInput()"
+      >
+        <span class="fw-bold text-secondary fs-3">+</span> Add subtask
+      </button>
+      <input
+        *ngIf="showInput"
+        [(ngModel)]="newTask"
+        (keydown.enter)="addTask()"
+        placeholder="Add a subtask"
+        class="form-control"
+        #newTaskInput
+      />
+    </div>
+  </div>
+</div>

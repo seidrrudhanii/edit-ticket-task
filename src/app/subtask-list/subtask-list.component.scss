@@ -1,0 +1,125 @@
+.subtask-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .subtask-header {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+
+    h4 {
+      margin: 0;
+    }
+  }
+
+  .progress-container {
+    display: flex;
+    align-items: center;
+    width: auto;
+    margin: 8px 0px 8px 25px;
+
+    .progress {
+      width: 100px;
+      height: 8px;
+      background-color: #e9ecef;
+      border-radius: 50px;
+      margin-right: 10px;
+
+      .progress-bar {
+        background-color: #5a67d8;
+        border-radius: 50px;
+        transition: width 0.4s ease;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 12px;
+      color: #6c757d;
+    }
+  }
+
+  .subtask-table {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    .subtask-header-row {
+      background-color: #f0f0f0;
+      padding: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      color: grey;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .subtask-item {
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e9ecef;
+      margin-left: 10px;
+
+      input[type="radio"] {
+        margin-right: 10px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        appearance: none;
+        position: relative;
+
+        &:checked {
+          background-color: #4a90e2;
+          border-color: #4a90e2;
+          transition: background-color 0.3s ease;
+        }
+
+        &:checked::after {
+          content: "";
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background: white;
+          border-radius: 50%;
+          top: 3px;
+          left: 3px;
+          transition: background 0.3s ease;
+        }
+      }
+
+      .muted {
+        color: #6c757d;
+      }
+
+      .black-text {
+        color: black;
+        font-weight: bold;
+      }
+
+      input.form-control {
+        margin-left: 10px;
+        width: auto;
+      }
+    }
+
+    .add-subtask {
+      button {
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #e9ecef;
+        }
+      }
+
+      input.form-control {
+        margin-top: 10px;
+      }
+    }
+  }
+}

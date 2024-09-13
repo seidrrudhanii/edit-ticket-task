@@ -1,0 +1,13 @@
+.icon {
+  width: 20px; /* Set the width of the SVG icons */
+  height: 20px;
+  margin-right: 10px; /* Add space between icon and label */
+}
+
+.background {
+  background: linear-gradient(135deg, #8e2de2, #4a00e0); /* Gradient colors */
+  padding: 15px; /* Ensure padding around content */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  color: #fff; /* White text color for better readability */
+  font-size: 16px; /* Adjust font size as needed */
+}

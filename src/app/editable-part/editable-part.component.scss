@@ -1,0 +1,82 @@
+.editable-part {
+  .field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative; /* Required for pseudo-element positioning */
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .label {
+      flex: 0 0 150px;
+      font-weight: bold;
+      color: #6c757d;
+      margin-right: 130px; /* Keep this margin as it was */
+    }
+
+    .value,
+    .form-control {
+      flex: 1; /* Take up remaining space */
+      font-size: 16px;
+      color: #3b455a;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .value {
+      cursor: pointer; /* Indicate clickable in view mode */
+      position: relative; /* Required for pseudo-element positioning */
+      z-index: 1; /* Ensure value appears above pseudo-element */
+    }
+
+    .form-control {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      z-index: 1; /* Ensure form-control appears above pseudo-element */
+    }
+
+    /* Hover effect for .value */
+    .value:hover {
+      background-color: #f0f0f0; /* Background color for hover effect */
+    }
+
+    /* Ensure the hover effect covers the entire width */
+    .field {
+      display: flex; /* Ensure the field is a flex container */
+      align-items: center; /* Center items vertically */
+      position: relative; /* Required for pseudo-element positioning */
+    }
+
+    /* Active state for the editable fields */
+    .field.active .value {
+      background-color: #e0e0e0; /* Active state background color */
+      border: 1px solid #007bff; /* Active border color */
+    }
+
+    /* Form control active state */
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Bootstrap focus shadow */
+    }
+
+    /* Special style for the non-editable Status badge */
+    .status-badge {
+      background-color: #fbe4a0;
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      color: #856404;
+      flex: none; /* Ensure badge doesn’t take up the same width as input fields */
+    }
+  }
+
+  /* Additional space between each editable section */
+  .field + .field {
+    margin-top: 20px;
+  }
+}

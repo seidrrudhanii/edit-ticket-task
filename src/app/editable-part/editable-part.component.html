@@ -1,0 +1,32 @@
+<div class="editable-part">
+  <!-- Non-editable field (e.g., Status) -->
+  <div class="field" *ngIf="!editable">
+    <img src="assets/icon-status.svg" alt="status icon" class="icon" />
+    <span class="label">{{ label }}</span>
+    <span class="value status-badge" *ngIf="label === 'Status'">{{
+      value
+    }}</span>
+    <span class="value" *ngIf="label !== 'Status'">{{ value }}</span>
+  </div>
+
+  <!-- Editable Fields (e.g., Assignee, Co-owner, etc.) -->
+  <div class="field" *ngIf="editable" [class.active]="isEditing">
+    <img [src]="getIconPath(label)" alt="{{ label }} icon" class="icon" />
+    <span class="label">{{ label }}</span>
+
+    <!-- View Mode -->
+    <span class="value" *ngIf="!isEditing" (click)="toggleEdit()">{{
+      value
+    }}</span>
+
+    <!-- Edit Mode -->
+    <input
+      type="text"
+      class="form-control"
+      *ngIf="isEditing"
+      [formControl]="editControl"
+      (blur)="onBlur()"
+      autofocus
+    />
+  </div>
+</div>

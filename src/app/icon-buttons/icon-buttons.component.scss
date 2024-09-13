@@ -1,0 +1,21 @@
+button {
+    font-family: 'Circular-Std', sans-serif;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #f0f0f0;
+    }
+    img {
+      width: 20px;
+      height: 20px;
+    }
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .icon {
+    width: 20px; /* Set the width of the SVG icons */
+    height: 20px;
+    margin-right: 10px; /* Add space between icon and label */
+  }
